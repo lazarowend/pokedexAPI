@@ -11,28 +11,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+    <!-- font blackops -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Poppins:wght@500&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
 </head>
 <body>
     
     <section class="content">
         <h1>Pokedex</h1>
 
-        <ol class="pokemons">
-            <li class="pokemon">
-                <span class="number">#001</span>
-                <span class="name">Bulbasaur</span>
-                <div class="detail">
-                    <ol class="types">
-                        <span class="type">Grass</span>
-                        <span class="type">Poison</span>
-                    </ol>
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="">
-                </div>
-            </li>
+        <ol class="pokemons" id="pokemonList">
+            
         </ol>
 
     </section>
 
+    <script src="/assets/js/pokemon-models.js"></script>
+    <script src="/assets/js/poke-api.js"></script>    
     <script src="/assets/js/main.js"></script>
 </body>
 </html>
