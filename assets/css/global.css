@@ -30,3 +30,23 @@ body {
         border-radius: 1rem;
     }
 }
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    padding: 1rem;
+}
+
+.pagination button {
+    background-color: #5c79db;
+    color: #fff;
+    padding: .5rem .8rem;
+    margin: .25rem 0;
+    font-size: .825rem;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+}
