@@ -1,5 +1,6 @@
 const pokeAPI = {};
 
+// Função que recebe um pokemon da api e cria um pokemon baseado na nossa Classe Pokemon
 function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon = new Pokemon();
     pokemon.id = pokeDetail.id;
@@ -28,12 +29,14 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     return pokemon;
 }
 
+// Recebe um pokemon e busca todos os seus detalhes
 pokeAPI.getPokemonDetail = (pokemon) => {
     return fetch(pokemon.url)
         .then((response) => response.json())
         .then(convertPokeApiDetailToPokemon);
 };
 
+// Busca pokemons com ou sem limites
 pokeAPI.getPokemons = (offset = 0, limit = 10) => {
     const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`;
 
@@ -49,6 +52,7 @@ pokeAPI.getPokemons = (offset = 0, limit = 10) => {
         .then((pokemonsDetails) => pokemonsDetails);
 };
 
+// Busca um pokemon baseado no ID ou no Nome
 pokeAPI.getPokemonById = (id) => {
     const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
 

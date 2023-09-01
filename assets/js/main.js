@@ -10,13 +10,13 @@ const limit = 10;
 let offset = 0;
 const maxRecords = 151;
 
+//  Ao focar no input para procurar um pokemon o css é resetado
 valueSearch.addEventListener("focus", () => {
     valueSearch.style.color = "#000";
     valueSearch.style.border = "1px solid #000";
 });
 
-
-
+// Chama a função que busca os pokemons e renderiza na tela
 function loadPokemonItens(offset, limit) {
     pokeAPI.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons
@@ -44,8 +44,10 @@ function loadPokemonItens(offset, limit) {
     });
 }
 
+// Chama a função que renderiza os pokemons na tela ao carregar o js
 loadPokemonItens(offset, limit);
 
+// Chama a função que busca um pokemon baseado no nome ou id
 btnSearchPokemon.addEventListener("click", () => {
     let idOrName = valueSearch.value;
     if (idOrName.length > 0) {
@@ -84,12 +86,15 @@ btnSearchPokemon.addEventListener("click", () => {
     }
 });
 
+// Aqui é onde carregamos mais pokemons na tela
 loadMoreButton.addEventListener("click", () => {
     offset += limit;
     const qtdRecordsWithNexPage = offset + limit;
     loadPokemonItens(offset, limit);
 });
 
+// Função que recebe o id do pokemon clicado e chama a função que busca pokemon por id
+// e aqui renderizamos o seu card na tela
 function initCard(id) {
     pokeAPI.getPokemonById(id).then((pokemon) => {
         const cardHtml = `
@@ -156,6 +161,7 @@ function initCard(id) {
     });
 }
 
+// função que fecha o card
 function closeCard() {
     (card.innerHTML = ""), (card.style.display = "none");
 }

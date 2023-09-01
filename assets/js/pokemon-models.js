@@ -1,3 +1,4 @@
+// Modelo de um pokemon
 class Pokemon {
     id;
     name;
@@ -6,6 +7,6 @@ class Pokemon {
     abilites = [];
     height;
     width;
-    status = {}
+    status = {};
     photo;
 }
