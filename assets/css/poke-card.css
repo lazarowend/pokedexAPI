@@ -1,4 +1,3 @@
-
 .card {
     display: none;
     width: 100%;
@@ -31,7 +30,7 @@
     justify-content: space-between;
 }
 
-.pokeCardInfo .pokeCardId{
+.pokeCardInfo .pokeCardId {
     margin: 1rem 1rem 0 0;
 }
 
@@ -41,9 +40,9 @@
 
 .pokeCardInfo .type {
     color: #fff;
-    padding: .15rem .5rem;
-    margin: .35rem .2;
-    font-size: .9rem;
+    padding: 0.15rem 0.5rem;
+    margin: 0.35rem 0.2;
+    font-size: 0.9rem;
     border-radius: 1rem;
     text-align: center;
     filter: brightness(120%);
@@ -74,24 +73,25 @@
     max-width: 40%;
 }
 
-.cardBody{
+.cardBody {
     width: 100%;
     border-radius: 1rem;
     background-color: #fff;
-    padding: .4rem .2rem;
+    padding: 0.4rem 0.2rem;
 }
 
 .cardBody li {
     list-style: none;
-    font-size: .9rem;
+    font-size: 0.9rem;
 }
 
-.about li, .status li {
+.about li,
+.status li {
     display: flex;
     width: 100%;
     text-align: left;
     align-items: center;
-    margin-left: .3rem;
+    margin-left: 0.3rem;
 }
 
 .about ul {
@@ -102,7 +102,7 @@
     text-align: left;
     margin-right: 3rem;
     width: 50%;
-    padding: .2rem;
+    padding: 0.2rem;
 }
 
 .status li div {
@@ -113,8 +113,7 @@
 
 .status li span {
     width: 90%;
-    padding: .2rem;
-
+    padding: 0.2rem;
 }
 
 .status li {
@@ -134,5 +133,8 @@
 @media screen and (min-width: 400px) {
     .cardPokeDetail {
         width: 85%;
+    }
+    .cardPokeDetail {
+        top: 40%;
     }
 }

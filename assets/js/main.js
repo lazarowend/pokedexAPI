@@ -1,48 +1,98 @@
 const pokemonList = document.getElementById("pokemonList");
-const loadMoreButton = document.getElementById("loadMoreButton")
-const cardPokeDetail = document.getElementById("cardPokeDetail")
-const btnCloseCard = document.getElementById("btnCloseCard")
-const card = document.querySelector(".card")
+const loadMoreButton = document.getElementById("loadMoreButton");
+const cardPokeDetail = document.getElementById("cardPokeDetail");
+const btnCloseCard = document.getElementById("btnCloseCard");
+const card = document.querySelector(".card");
+const btnSearchPokemon = document.getElementById("btnSearchPokemon");
+const valueSearch = document.getElementById("inputSearchPokemon");
 
 const limit = 10;
 let offset = 0;
 const maxRecords = 151;
 
-function loadPokemonItens(offset, limit) {
+valueSearch.addEventListener("focus", () => {
+    valueSearch.style.color = "#000";
+    valueSearch.style.border = "1px solid #000";
+});
 
+
+
+function loadPokemonItens(offset, limit) {
     pokeAPI.getPokemons(offset, limit).then((pokemons = []) => {
-      const newHtml = pokemons.map((pokemon) => `
+        const newHtml = pokemons
+            .map(
+                (pokemon) => `
         <li class="pokemon ${pokemon.type}" onclick="initCard(${pokemon.id})">
             <span class="number">#${pokemon.id}</span>
             <span class="name">${pokemon.name}</span>
 
             <div class="detail">
                 <ol class="types">
-                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                    ${pokemon.types
+                        .map((type) => `<li class="type ${type}">${type}</li>`)
+                        .join("")}
                 </ol>
 
                 <img src="${pokemon.photo}" alt="${pokemon.name}">
             </div>
         </li>
-      `).join('')
+      `
+            )
+            .join("");
 
-      pokemonList.innerHTML += newHtml
-    })
+        pokemonList.innerHTML += newHtml;
+    });
 }
 
-loadPokemonItens(offset, limit)
+loadPokemonItens(offset, limit);
 
-loadMoreButton.addEventListener('click', () => {
-  offset += limit;
-  const qtdRecordsWithNexPage = offset + limit
-  loadPokemonItens(offset, limit)
-})
+btnSearchPokemon.addEventListener("click", () => {
+    let idOrName = valueSearch.value;
+    if (idOrName.length > 0) {
+        pokeAPI.getPokemonById(idOrName).then((pokemon) => {
+            if (pokemon == null) {
+                valueSearch.style.color = "#ff0000";
+                valueSearch.style.border = "1px solid #ff0000";
+            } else {
+                const newHtmlOnePoke = `
+                <li class="pokemon ${pokemon.type}" onclick="initCard(${
+                    pokemon.id
+                })">
+                    <span class="number">#${pokemon.id}</span>
+                    <span class="name">${pokemon.name}</span>
 
+                    <div class="detail">
+                        <ol class="types">
+                            ${pokemon.types
+                                .map(
+                                    (type) =>
+                                        `<li class="type ${type}">${type}</li>`
+                                )
+                                .join("")}
+                        </ol>
+
+                        <img src="${pokemon.photo}" alt="${pokemon.name}">
+                    </div>
+                </li>
+              `;
+                pokemonList.innerHTML = "";
+                pokemonList.innerHTML = newHtmlOnePoke;
+            }
+        });
+    } else {
+        loadPokemonItens(offset, limit);
+    }
+});
+
+loadMoreButton.addEventListener("click", () => {
+    offset += limit;
+    const qtdRecordsWithNexPage = offset + limit;
+    loadPokemonItens(offset, limit);
+});
 
 function initCard(id) {
-  pokeAPI.getPokemonById(id).then((pokemon) => {
-
-    const cardHtml = `
+    pokeAPI.getPokemonById(id).then((pokemon) => {
+        const cardHtml = `
     <div class="cardPokeDetail ${pokemon.type}" id="cardPokeDetail">
     <div class="cardHeader">
     <button class="btnCloseCard" onclick="closeCard()">x</button>
@@ -50,7 +100,9 @@ function initCard(id) {
         <div class="pokeInfoLeft">
             <h2 class="name">${pokemon.name}</h2>
             <div class="pokeCardTypes">
-            ${pokemon.types.map((type) => `<span class="type ${type}">${type}</span>`).join('')}
+            ${pokemon.types
+                .map((type) => `<span class="type ${type}">${type}</span>`)
+                .join("")}
             </div>
         </div>
         <span class="pokeCardId">#${pokemon.id}</span>
@@ -72,15 +124,17 @@ function initCard(id) {
                 <span>${pokemon.height}</span>
             </li>
             <li>
-                <span>Width</span>
-                <span>${pokemon.width}</span>
+                <span>weight</span>
+                <span>${pokemon.weight}</span>
             </li>
         </ul>
     </div>
     <div class="status">
         <h3>Stats</h3>
         <ul>
-        ${pokemon.status.map((stat) => `
+        ${pokemon.status
+            .map(
+                (stat) => `
         <li>
             <div>
             <span>${stat.nameStatus}</span>
@@ -88,22 +142,20 @@ function initCard(id) {
             </div>
             <span class="line ${pokemon.type}" style="width: ${stat.stats}px;"></span>
         </li>
-    `).join('')}
+    `
+            )
+            .join("")}
         </ul>
     </div>
 </div>
 
 </div>
-    `
-    card.style.display = 'block'
-    card.innerHTML = cardHtml
-
-
-  });
+    `;
+        card.style.display = "block";
+        card.innerHTML = cardHtml;
+    });
 }
 
-
 function closeCard() {
-    card.innerHTML = '',
-    card.style.display = 'none'
+    (card.innerHTML = ""), (card.style.display = "none");
 }

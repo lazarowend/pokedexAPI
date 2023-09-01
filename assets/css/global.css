@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -16,19 +16,9 @@ body {
 }
 
 .content h1 {
-    font-family: 'Black Ops One', cursive;
+    font-family: "Black Ops One", cursive;
     font-size: 40px;
     text-align: center;
-}
-
-@media screen and (min-width: 992px) {
-    .content {
-        max-width: 992px;
-        margin: 0 auto;
-        height: auto;
-        margin: 1rem auto;
-        border-radius: 1rem;
-    }
 }
 
 .pagination {
@@ -43,10 +33,61 @@ body {
 .pagination button {
     background-color: #5c79db;
     color: #fff;
-    padding: .5rem .8rem;
-    margin: .25rem 0;
-    font-size: .825rem;
+    padding: 0.5rem 0.8rem;
+    margin: 0.25rem 0;
+    font-size: 0.825rem;
     border: none;
     border-radius: 1rem;
     cursor: pointer;
+}
+
+.input {
+    display: flex;
+}
+
+.input input {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+
+.input p {
+    padding: 1rem;
+    background-color: #5c79db;
+    color: #fff;
+    cursor: pointer;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+    .content {
+        max-width: 992px;
+        margin: 0 auto;
+        height: auto;
+        margin: 1rem auto;
+        border-radius: 1rem;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .input input {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+    }
+
+    .input p {
+        padding: 1rem;
+        background-color: #5c79db;
+        color: #fff;
+        cursor: pointer;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
 }
