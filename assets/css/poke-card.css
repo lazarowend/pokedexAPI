@@ -1,0 +1,138 @@
+
+.card {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+}
+
+.cardPokeDetail {
+    width: 95%;
+    max-width: 400px;
+    height: 400px;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+
+.pokeCardInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pokeCardInfo .pokeCardId{
+    margin: 1rem 1rem 0 0;
+}
+
+.pokeCardInfo .pokeInfoLeft {
+    margin: 0 1rem;
+}
+
+.pokeCardInfo .type {
+    color: #fff;
+    padding: .15rem .5rem;
+    margin: .35rem .2;
+    font-size: .9rem;
+    border-radius: 1rem;
+    text-align: center;
+    filter: brightness(120%);
+    filter: saturate(60%);
+}
+
+.btnCloseCard {
+    width: 30px;
+    height: 30px;
+    border-radius: 1rem;
+    margin: 1rem 1rem 0 0;
+    align-self: flex-end;
+    background-color: transparent;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    font-size: larger;
+}
+
+.pokePhoto {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.pokePhoto img {
+    max-width: 40%;
+}
+
+.cardBody{
+    width: 100%;
+    border-radius: 1rem;
+    background-color: #fff;
+    padding: .4rem .2rem;
+}
+
+.cardBody li {
+    list-style: none;
+    font-size: .9rem;
+}
+
+.about li, .status li {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    align-items: center;
+    margin-left: .3rem;
+}
+
+.about ul {
+    width: 100%;
+}
+
+.about li span {
+    text-align: left;
+    margin-right: 3rem;
+    width: 50%;
+    padding: .2rem;
+}
+
+.status li div {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.status li span {
+    width: 90%;
+    padding: .2rem;
+
+}
+
+.status li {
+    border-bottom: 1px solid #ccc;
+    width: 98%;
+}
+
+.status li span:nth-child(2) {
+    width: 10%;
+    margin-right: 2rem;
+}
+
+.status li span.line {
+    height: 2px;
+}
+
+@media screen and (min-width: 400px) {
+    .cardPokeDetail {
+        width: 85%;
+    }
+}
