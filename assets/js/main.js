@@ -88,6 +88,7 @@ btnSearchPokemon.addEventListener("click", () => {
 
 // Aqui é onde carregamos mais pokemons na tela
 loadMoreButton.addEventListener("click", () => {
+    valueSearch.value = "";
     offset += limit;
     const qtdRecordsWithNexPage = offset + limit;
     loadPokemonItens(offset, limit);
